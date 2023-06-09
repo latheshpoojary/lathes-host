@@ -5,9 +5,127 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #eee;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #555;
+}
+.add-btn{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: greenyellow;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  position: fixed;
+  top: 85%;
+  left: 94%;
+  z-index: 999;
+}
+.header{
+  font-size: 50px;
+  font-weight: bolder;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000;
+  text-align: center;
+  text-shadow: 5px 5px 5px black;
+
+}
+section{
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  
+}
+article{
+  width: 90%;
+  height: 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+ 
+  background-color: #E8E8E8;
+  border-radius: 8px;
+  /* box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1); */
+  padding: 2rem;
+  
+}
+.Todo,.Progress,.Done{
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  /* border: 1px solid red; */
+
+}
+.Todo header,.Progress header,
+.Done header{
+  display: flex;
+  justify-content: space-between;
+}
+.Todo header h3,
+.Progress header h3,
+.Done header h3{
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.Todo header p,
+.Progress header p,
+.Done header p{
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input{
+  width: 100%;
+      border: 1px solid grey;
+      -webkit-appearance: none;
+      -ms-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: #f2f2f2;
+      padding: 15px;
+      border-radius: 3px;
+      /* width: 250px; */
+      font-size: 14px;
+    
 }
