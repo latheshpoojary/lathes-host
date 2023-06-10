@@ -1,19 +1,25 @@
 
+// import { Card } from "react-bootstrap";
+import CardDesign from "./CardDesign";
 
 
-
-const Divider = () => {
-    
-  
+const Divider = ({card}) => {
+    console.log("divider:",card);
   return (
     <section>
         <article>
             <div className="Todo">
                 <header>
                     <h3>To-Do</h3>
-                    <p className="Count-Card">2</p>
+                    <p className="Count-Card">{card.length}</p>
                 </header>
                 <input type="search" placeholder="Enter the Card Title to Search"/>
+                {card.length?(
+                    <CardDesign
+                    card={card}
+                    />
+                ):
+                <p>List is Empty</p>}
                 
 
 

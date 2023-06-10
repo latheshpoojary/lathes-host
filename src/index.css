@@ -70,16 +70,17 @@ section{
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  
+  border-radius: 8px;
+  /* background-color: #454140; */
 }
 article{
   width: 90%;
   height: 100%;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: space-around;
  
-  background-color: #E8E8E8;
+  /* background-color: #454140; */
   border-radius: 8px;
   /* box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1); */
   padding: 2rem;
@@ -87,9 +88,11 @@ article{
 }
 .Todo,.Progress,.Done{
   width: 100%;
+  height: fit-content;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+  box-shadow: 4px 8px 8px 1px rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -128,4 +131,32 @@ input{
       /* width: 250px; */
       font-size: 14px;
     
+}
+.card-collection{
+  height: 100%;
+}
+.card{
+  padding: 1.5rem;
+  margin: 1.5rem;
+  box-shadow: 2px 1px 2px 4px rgba(0,0,0,0.4);
+}
+.cardHeader{
+  display: flex;
+  justify-content: space-between;
+}
+.cardBody{
+  margin-top: 10px;
+  padding: 10px;
+ background-color: #eee;
+ border-radius: 8px;
+ margin-bottom: 15px;
+
+}
+.Todo .footer{
+
+  display: flex;
+  justify-content: right;
+}
+.Progress .footer{
+  justify-content: left;
 }
