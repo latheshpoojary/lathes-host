@@ -5,25 +5,31 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 // import Divider from "./Divider";
 // import CardDesign from "./CardDesign";
-export const AddIcon = ({card,setCard, newCard, setNewCard }) => {
+export const AddIcon = ({ card, setCard, newCard, setNewCard }) => {
+  // console.log("length ",newCard.length);
+  // let index=0;
   
   // const [submitted,setSubmitted] = useState(false)
   const [showForm, setShowForm] = useState(false);
-  
-  const handleChange = (e) => {
-    setNewCard({ ...newCard, [e.target.name]: e.target.value });
-    
-    
-    
+
+  const setAndSaveItem = (item) => {
+    console.log("from adddICon",item);
+    localStorage.setItem("cardList", JSON.stringify(item));
+    setCard(item);
+    console.log("add Icon:", card);
   };
   const addItem = (newCard) => {
+    console.log("length ", card.length);
     const temp = {
+      id: card.length,
       title: newCard.title,
       desc: newCard.desc,
       date: newCard.date,
+      status: "todo",
     };
-    const listItem = [...card, temp]; 
-    setCard(listItem);
+    const listItem = [...card, temp];
+    
+    setAndSaveItem(listItem);
   };
 
   const handleShow = () => {
@@ -32,12 +38,15 @@ export const AddIcon = ({card,setCard, newCard, setNewCard }) => {
   const handleClose = () => {
     setShowForm(false);
   };
+  const handleChange = (e) => {
+    setNewCard({ ...newCard, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!newCard) return
+    if (!newCard) return;
     addItem(newCard);
-    setNewCard('')
+    setNewCard("");
     setShowForm(false);
   };
 
@@ -88,7 +97,6 @@ export const AddIcon = ({card,setCard, newCard, setNewCard }) => {
           </form>
         </Modal.Body>
       </Modal>
-      
     </>
   );
 };
