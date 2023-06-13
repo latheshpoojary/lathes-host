@@ -54,6 +54,7 @@ code {
   top: 85%;
   left: 94%;
   z-index: 999;
+  cursor: pointer;
 }
 .header{
   font-size: 50px;
@@ -61,7 +62,7 @@ code {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #000;
   text-align: center;
-  text-shadow: 5px 5px 5px black;
+  text-shadow: 1px 1px 1px black;
 
 }
 section{
@@ -92,11 +93,12 @@ article{
   padding: 1rem;
   border-radius: 8px;
   background-color: #f0f0f0;
-  box-shadow: 4px 8px 8px 1px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 3px 0.5px rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   /* border: 1px solid red; */
+  
 
 }
 .Todo header,.Progress header,
@@ -138,7 +140,7 @@ input{
 .card{
   padding: 1.5rem;
   margin: 1.5rem;
-  box-shadow: 2px 1px 2px 4px rgba(0,0,0,0.4);
+  box-shadow: 2px 1px 1px 0.5px rgba(0,0,0,0.4);
 }
 .cardHeader{
   display: flex;
@@ -156,7 +158,16 @@ input{
 
   display: flex;
   justify-content: right;
+  cursor: pointer;
 }
 .Progress .footer{
-  justify-content: left;
+  display: flex;
+  justify-content: right;
+  cursor: pointer;
+}
+.Done .footer .dir{
+  position: relative;
+  
+  opacity: 0;
+
 }

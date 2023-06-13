@@ -25,14 +25,17 @@ function App() {
     date:'',
 
   }])
+  
   console.log(card);
-
+   const [showForm, setShowForm] = useState(false);
   const [newCard, setNewCard] = useState({ title: "", desc: "", date: "" });
 
   return (
     <div>
       <Header />
       <AddIcon
+        showForm={showForm}
+        setShowForm={setShowForm}
         card={card}
         setCard={setCard}
         newCard={newCard}
@@ -40,8 +43,14 @@ function App() {
         progress={progress}
         setProgress={setProgress}
       />
-      <Divider card={card}
-      setCard={setCard} />
+      <Divider
+        showForm={showForm}
+        setShowForm={setShowForm}
+        card={card}
+        setCard={setCard}
+        newCard={newCard}
+        setNewCard={setNewCard}
+      />
     </div>
   );
 }

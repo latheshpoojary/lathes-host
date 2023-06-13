@@ -5,15 +5,27 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 // import Divider from "./Divider";
 // import CardDesign from "./CardDesign";
-export const AddIcon = ({ card, setCard, newCard, setNewCard }) => {
+export const AddIcon = ({
+  showForm,
+  setShowForm,
+  card,
+  setCard,
+  newCard,
+  setNewCard,
+}) => {
   // console.log("length ",newCard.length);
   // let index=0;
-  
+
   // const [submitted,setSubmitted] = useState(false)
-  const [showForm, setShowForm] = useState(false);
+
+  const [editForm, setEditForm] = useState({
+    title: "",
+    desc: "",
+    date: "",
+  });
 
   const setAndSaveItem = (item) => {
-    console.log("from adddICon",item);
+    console.log("from adddICon", item);
     localStorage.setItem("cardList", JSON.stringify(item));
     setCard(item);
     console.log("add Icon:", card);
@@ -28,7 +40,7 @@ export const AddIcon = ({ card, setCard, newCard, setNewCard }) => {
       status: "todo",
     };
     const listItem = [...card, temp];
-    
+
     setAndSaveItem(listItem);
   };
 
