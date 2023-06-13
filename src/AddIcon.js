@@ -26,8 +26,10 @@ export const AddIcon = ({
 
   const setAndSaveItem = (item) => {
     console.log("from adddICon", item);
-    localStorage.setItem("cardList", JSON.stringify(item));
+    
     setCard(item);
+    localStorage.setItem("cardList", JSON.stringify(card
+      ));
     console.log("add Icon:", card);
   };
   const addItem = (newCard) => {
