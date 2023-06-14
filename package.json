@@ -1,6 +1,6 @@
 {
   "name": "todo-app",
-  "homepage": "https://latheshpoojary.github.io/Todo-application-Using-React",
+  "homepage": "https://latheshpoojary.github.io/react-todo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
