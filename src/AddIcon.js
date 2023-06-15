@@ -12,12 +12,9 @@ export const AddIcon = ({
   setCard,
   newCard,
   setNewCard,
+  formId,
+  setFormId
 }) => {
-  // console.log("length ",newCard.length);
-  // let index=0;
-
-  // const [submitted,setSubmitted] = useState(false)
-
   const [editForm, setEditForm] = useState({
     title: "",
     desc: "",
@@ -25,15 +22,12 @@ export const AddIcon = ({
   });
 
   const setAndSaveItem = (item) => {
-    console.log("from adddICon", item);
-    
     setCard(item);
-    localStorage.setItem("cardList", JSON.stringify(card
-      ));
-    console.log("add Icon:", card);
+    localStorage.setItem("cardList", JSON.stringify(card));
   };
   const addItem = (newCard) => {
-    console.log("length ", card.length);
+   
+    
     const temp = {
       id: card.length,
       title: newCard.title,
@@ -41,9 +35,23 @@ export const AddIcon = ({
       date: newCard.date,
       status: "todo",
     };
-    const listItem = [...card, temp];
+    if(formId){
+      temp.id=formId;
+      const component = card.slice();
+      const parsedNumber = parseInt(formId, 10); 
+      component[parsedNumber] = temp;
+      console.log(component,"component");
+      setAndSaveItem(component);
+      setFormId(null);
+    }
+    else{
+      const listItem = [...card, temp];
+      setAndSaveItem(listItem);
+    }
+   
+    
 
-    setAndSaveItem(listItem);
+    
   };
 
   const handleShow = () => {
@@ -56,13 +64,15 @@ export const AddIcon = ({
     setNewCard({ ...newCard, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
+    console.log("id", e.target.id);
     e.preventDefault();
     if (!newCard) return;
+    
     addItem(newCard);
     setNewCard("");
     setShowForm(false);
-  };
+  }
 
   return (
     <>
@@ -75,7 +85,7 @@ export const AddIcon = ({
           <Modal.Title>Add ToDo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form className="myForm" onSubmit={handleSubmit}>
+          <form className="myForm" id={newCard.length} onSubmit={handleSubmit}>
             <label htmlFor="title">Title</label>
             <input
               type="text"

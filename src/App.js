@@ -3,7 +3,7 @@ import { AddIcon } from "./AddIcon";
 import Header from "./Header";
 import Divider from "./Divider";
 import { useState } from "react";
-import { Card } from "react-bootstrap";
+
 
 function App() {
   const [defaultValue, setDefaultValue] = useState([
@@ -26,7 +26,7 @@ function App() {
 
   }])
   
-  console.log(card);
+  const [formId,setFormId] = useState(null);
    const [showForm, setShowForm] = useState(false);
   const [newCard, setNewCard] = useState({ title: "", desc: "", date: "" });
 
@@ -42,6 +42,8 @@ function App() {
         setNewCard={setNewCard}
         progress={progress}
         setProgress={setProgress}
+        formId={formId}
+        setFormId={setFormId}
       />
       <Divider
         showForm={showForm}
@@ -50,6 +52,8 @@ function App() {
         setCard={setCard}
         newCard={newCard}
         setNewCard={setNewCard}
+        formId={formId}
+        setFormId={setFormId}
       />
     </div>
   );

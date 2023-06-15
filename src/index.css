@@ -141,6 +141,7 @@ input{
   padding: 1.5rem;
   margin: 1.5rem;
   box-shadow: 2px 1px 1px 0.5px rgba(0,0,0,0.4);
+  overflow: visible;
 }
 .cardHeader{
   display: flex;
@@ -170,4 +171,21 @@ input{
   
   opacity: 0;
 
+}
+.delete{
+  width: 40px;
+
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: red;
+  margin-top: -35px;
+  margin-left: 100%;
+  cursor: pointer;
+}
+.FaTimes{
+  color: white;
 }
