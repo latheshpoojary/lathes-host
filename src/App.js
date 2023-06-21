@@ -6,17 +6,17 @@ import { useState } from "react";
 
 
 function App() {
-  const [defaultValue, setDefaultValue] = useState([
-    {
-      title: "",
-      desc: "",
-      date: "",
-      status:""
-    },
-  ]);
-  localStorage.setItem("cardList", JSON.stringify(defaultValue));
+  // const [defaultValue, setDefaultValue] = useState([
+  //   {
+  //     title: "",
+  //     desc: "",
+  //     date: "",
+  //     status:""
+  //   },
+  // ]);
+  // localStorage.setItem("cardList", JSON.stringify(defaultValue));
   const [card, setCard] = useState(
-    JSON.parse(localStorage.getItem("cardList"))
+    JSON.parse(localStorage.getItem("cardList") || [])
   );
   const [progress,setProgress] = useState([{
     id:'',

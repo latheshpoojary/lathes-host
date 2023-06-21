@@ -28,17 +28,21 @@ export const AddIcon = ({
   const addItem = (newCard) => {
    
     
+    
     const temp = {
       id: card.length,
       title: newCard.title,
       desc: newCard.desc,
       date: newCard.date,
-      status: "todo",
+      status: newCard.status || "todo",
     };
     if(formId){
       temp.id=formId;
+      
       const component = card.slice();
+      console.log(component);
       const parsedNumber = parseInt(formId, 10); 
+      
       component[parsedNumber] = temp;
       console.log(component,"component");
       setAndSaveItem(component);

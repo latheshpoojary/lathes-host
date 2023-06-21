@@ -51,7 +51,6 @@ const Divider = ({
             onChange={handleSearchTodo}
           />
           <div>
-            
             {card != null &&
             card.filter((item) => item.status == "todo").length != "0" ? (
               <CardDesign
@@ -110,6 +109,7 @@ const Divider = ({
                 setProgress={setProgress}
                 newCard={newCard}
                 setNewCard={setNewCard}
+                setFormId={setFormId}
               />
             ) : (
               <p>List is Empty😕</p>
@@ -149,6 +149,7 @@ const Divider = ({
                 setProgress={setProgress}
                 newCard={newCard}
                 setNewCard={setNewCard}
+                setFormId={setFormId}
               />
             ) : (
               <p>List is Empty😕</p>

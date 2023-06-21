@@ -30,28 +30,33 @@ const CardDesign = ({
     setCard(obj);
     // console.log(card);
   }
-  const handleShow = (e) => {
+  const handleShow = (index) => {
     
-    const cardValue = { ...cardocument };
+    const cardValue = [ ...cardocument ];
     
     const formValue = {
-      title: cardValue[e.target.id].title,
-      desc: cardValue[e.target.id].desc,
-      date: cardValue[e.target.id].date,
+      title: cardValue[index].title,
+      desc: cardValue[index].desc,
+      date: cardValue[index].date,
+      status:cardValue[index].status
     };
+    console.log(formValue,"formValue");
     setNewCard(formValue);
     setShowForm(true);
-    setFormId(e.target.id);
+    setFormId(index);
   };
-  const handledelete = (e) => {
-    const id = parseInt(e.target.id);
-    console.log(id);
-    const updatedCarDocument = cardocument.filter((item) => {
-      if(id !== item.id){
-        return item;
-      }
-    });
-    setCard(updatedCarDocument)
+  const handledelete = (id) => {
+  
+    // let isdelete = confirm("Do you want to proceed?");
+   
+      const updatedCarDocument = cardocument.filter((item) => {
+        if (id !== item.id) {
+          return item;
+        }
+      });
+      setCard(updatedCarDocument);
+    
+    
   };
 
 
@@ -62,19 +67,21 @@ const CardDesign = ({
         card.map((item) =>
           item.title && item.desc && item.date ? (
             <div className="card" id={card == null ? 1 : card.length + 1}>
-              <div className="delete">
+              <div
+                className="delete"
+                
+                onClick={()=>handledelete(item.id)}
+              >
                 <FaTimes
                   size={32}
                   style={{
                     color: "white",
                   }}
-                  id={item.id}
-                  onClick={handledelete}
                 ></FaTimes>
               </div>
               <div className="cardHeader">
                 <h3>{item.title}</h3>
-                <Button id={item.id} onClick={handleShow}>
+                <Button  onClick={()=>handleShow(item.id)}>
                   Edit
                 </Button>
               </div>
